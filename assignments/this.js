@@ -12,6 +12,11 @@
 // Principle 1
 
 // code example for Window Binding
+function myAddress(address) {
+    console.log(this);
+    return address;
+}
+myAddress("CA, Sacramento")
 
 // Principle 2
 
