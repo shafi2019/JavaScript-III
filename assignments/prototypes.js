@@ -40,6 +40,7 @@ CharacterStats.prototype.takeDamage = function () {
   return `${this.name} took damage`;
 }
 
+
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -49,7 +50,6 @@ CharacterStats.prototype.takeDamage = function () {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-
 function Humanoid(character) {
   this.team = character.team;
   this.weapons = character.weapons;
