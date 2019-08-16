@@ -136,3 +136,76 @@ Humanoid.prototype.greet = function() {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //Villain Constructor Function
+  function Villain(villianAttr) {
+    Humanoid.call(this, villianAttr);
+    this.removeHealthPoints = villianAttr.removeHealthPoints;
+  }
+  Villain.prototype = Object.create(Humanoid.prototype);
+  Villain.prototype.checkIfDestroy = function() {
+    console.log(`${this.name}  lost ${this.removeHealthPoints}`);
+  };
+  
+
+ //Hero Constructor Function
+  function Hero(hereAttr) {
+    Humanoid.call(this, hereAttr);
+    this.saveHealthPoints = hereAttr.saveHealthPoints;
+  }
+
+  Hero.prototype = Object.create(Humanoid.prototype);
+  Hero.prototype.checkIfSaved = function() {
+    console.log(`${this.name} gained ${this.saveHealthPoints}`);
+  }
+
+  const AAA = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 4,
+      width: 5,
+      height: 1,
+    },
+    healthPoints: 30,
+    name: 'Jack',
+    team: 'Archers',
+    weapons: [
+      'Arch',
+      'Gun'
+    ],
+    language: 'Persian',
+    removeHealthPoints: 10,
+  });
+
+  const BBB = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 3,
+      height: 1,
+    },
+    healthPoints: 12,
+    name: 'Jay',
+    team: 'Savers',
+    weapons: [
+      'Love',
+      'Kind'
+    ],
+    language: 'Russian',
+    removeHealthPoints: 5,
+  });
+
+  console.log(AAA.checkIfDestroy());
+  console.log(BBB.checkIfSaved());
