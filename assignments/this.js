@@ -19,13 +19,52 @@ function myAddress(address) {
 myAddress("CA, Sacramento")
 
 // Principle 2
+const testResult = {
+    greetPass: 'Congratulations',
+    pass:'you passed the test!',
+    sayResult: function(name) {
+      console.log(`${this.greetPass} ${name}, ${this.pass}`);
+      console.log(this);
+    }
+  };
+  testResult.sayResult('Shafi');
 
 // code example for Implicit Binding
 
 // Principle 3
+const FirstObject = function (action){
+  this.name = 'Shafi';
+  this.school = 'Lambda';
+  this.introduction = function () {
+  console.log('My name is ' + this.name + ' and I am a ' + action +  ' at '+ this.school + '!');
+}
+};
+const obj = new FirstObject('student');
+const obj2 = new FirstObject('Part Time Student');
+obj.introduction();
+obj2.introduction();
 
 // code example for New Binding 
 
 // Principle 4
+function HbDay (name) {
+  this.greeting = 'Happy Birthday';
+  this.name = name;
+  this.speak = function () {
+    console.log(`${this.greeting} ${this.name}`)
+  }
+}
+const shafi = new HbDay('Shafi');
+const masoumi = new HbDay('Masoumi');
+
+shafi.speak.call(masoumi);
+masoumi.speak.apply(shafi);
+
+shafi.speak();
+masoumi.speak();
+
+
+
+
 
 // code example for Explicit Binding
